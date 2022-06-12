@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.Data", "KUSY.Data\KUSY.Data.csproj", "{78F58BF4-1148-4461-BB36-723766FFF691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KUSY.Data", "KUSY.Data\KUSY.Data.csproj", "{78F58BF4-1148-4461-BB36-723766FFF691}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.Entities", "KUSY.Entities\KUSY.Entities.csproj", "{1482D5A7-3C4A-4A87-BF71-C9344EB85EF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KUSY.Entities", "KUSY.Entities\KUSY.Entities.csproj", "{1482D5A7-3C4A-4A87-BF71-C9344EB85EF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.Services", "KUSY.Services\KUSY.Services.csproj", "{0EB16D80-6BFA-436E-96C6-4A70B959CA96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KUSY.Services", "KUSY.Services\KUSY.Services.csproj", "{0EB16D80-6BFA-436E-96C6-4A70B959CA96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.Shared", "KUSY.Shared\KUSY.Shared.csproj", "{20BCB239-D71D-4116-9E44-B19F463D1586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KUSY.Shared", "KUSY.Shared\KUSY.Shared.csproj", "{20BCB239-D71D-4116-9E44-B19F463D1586}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.Mvc", "KUSY.Mvc\KUSY.Mvc.csproj", "{425DC20F-CA2B-4F77-AB91-640012A140BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KUSY.Mvc", "KUSY.Mvc\KUSY.Mvc.csproj", "{425DC20F-CA2B-4F77-AB91-640012A140BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSY.MVCV2", "KUSY.MVCV2\KUSY.MVCV2.csproj", "{6F4047DE-993A-4959-9921-0B17FF4F90E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{425DC20F-CA2B-4F77-AB91-640012A140BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{425DC20F-CA2B-4F77-AB91-640012A140BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{425DC20F-CA2B-4F77-AB91-640012A140BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4047DE-993A-4959-9921-0B17FF4F90E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4047DE-993A-4959-9921-0B17FF4F90E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4047DE-993A-4959-9921-0B17FF4F90E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4047DE-993A-4959-9921-0B17FF4F90E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

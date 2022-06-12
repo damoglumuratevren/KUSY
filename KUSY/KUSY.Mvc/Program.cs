@@ -1,3 +1,5 @@
+using AutoMapper;
+using KUSY.Services.AutoMapper.Profiles;
 using KUSY.Services.Extensions;
 
 namespace KUSY.Mvc
@@ -11,6 +13,15 @@ namespace KUSY.Mvc
              static void ConfigureServices(IServiceCollection services)
             {
                 services.LoadMyServices();
+                services.AddControllersWithViews().AddRazorRuntimeCompilation();
+                var mapperConfig = new MapperConfiguration(mc =>
+                {
+                    mc.AddProfile(new CourseStudentProfile());
+                    mc.AddProfile(new StudentProfile());
+                });
+
+                IMapper mapper = mapperConfig.CreateMapper();
+                services.AddSingleton(mapper);
             }
 
             // Add services to the container.
@@ -22,8 +33,13 @@ namespace KUSY.Mvc
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
+                app.UseStatusCodePages();
+                app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+
+
+
 
             app.UseRouting();
 

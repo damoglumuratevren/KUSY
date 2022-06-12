@@ -1,0 +1,25 @@
+﻿@using KUSY.Shared.Utilities.Results.ComplexType
+@model  KUSY.Entities.Dtos.StudentListDto
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Ögrenciler";
+}
+
+@if(Model.ResultStatus==ResultStatus.Success){
+    <table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  @foreach (var student in Model.Students)
+  {
+    <tr>
+    <td>@student.Id</td>
+    <td>@student.FirstName</td>
+    <td>@student.LastName</td>
+  </tr>   
+  }
+</table>
+}

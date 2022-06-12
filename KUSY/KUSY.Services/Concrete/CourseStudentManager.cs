@@ -29,7 +29,9 @@ namespace KUSY.Services.Concrete
             var courseStudent = _mapper.Map<CourseStudent>(courseStudentAddDto);
             courseStudent.CreatedById = createdById;
             courseStudent.ModifiedById = createdById;
-            await _unitOfWork.CourseStudents.AddAsync(courseStudent).ContinueWith(t=>_unitOfWork.SaveAsync());
+            await _unitOfWork.CourseStudents.AddAsync(courseStudent);
+            await _unitOfWork.SaveAsync();
+
             return new Result(ResultStatus.Success, "Basarılı şekilde eklenmiştir.");
         }
 
@@ -42,7 +44,9 @@ namespace KUSY.Services.Concrete
                 cs.ModifiedById = modifiedById;
                 cs.IsDeleted = true;
                 cs.ModifiedDate = DateTime.Now;
-                await _unitOfWork.CourseStudents.UpdateAsync(cs).ContinueWith(t=>_unitOfWork.SaveAsync());
+                await _unitOfWork.CourseStudents.UpdateAsync(cs);
+                await _unitOfWork.SaveAsync();
+
                 return new Result(ResultStatus.Success, "Basarılı şekilde Silinmiştir.");
             }
             return new Result(ResultStatus.Error, "Kayıt bulunmamıştır.");
@@ -129,7 +133,9 @@ namespace KUSY.Services.Concrete
         {
             var cs=_mapper.Map<CourseStudent>(courseStudentUpdateDto); 
             cs.ModifiedById = modifiedById;
-            await _unitOfWork.CourseStudents.UpdateAsync(cs).ContinueWith(y=>_unitOfWork.SaveAsync());
+            await _unitOfWork.CourseStudents.UpdateAsync(cs);
+            await _unitOfWork.SaveAsync();
+
             return new Result(ResultStatus.Success, "Basarılı şekilde güncellenmiştir.");
         }
     }

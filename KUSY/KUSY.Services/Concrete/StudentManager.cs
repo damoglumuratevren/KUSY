@@ -29,7 +29,8 @@ namespace KUSY.Services.Concrete
             var student=_mapper.Map<Student>(studentAddDto);
             student.ModifiedById = createdById;
             student.CreatedById = createdById;
-            await _unitOfWork.Students.AddAsync(student).ContinueWith(t=>_unitOfWork.SaveAsync());
+            await _unitOfWork.Students.AddAsync(student);
+            await _unitOfWork.SaveAsync();
             return new Result(ResultStatus.Success, $"{studentAddDto.FirstName + " " + studentAddDto.LastName} öğrencisi eklenmiştir.");
         }
 
@@ -41,7 +42,9 @@ namespace KUSY.Services.Concrete
                 student.IsDeleted = true;
                 student.ModifiedById = modifiedById;
                 student.ModifiedDate = DateTime.Now;
-                await _unitOfWork.Students.UpdateAsync(student).ContinueWith(d=>_unitOfWork.SaveAsync());
+                await _unitOfWork.Students.UpdateAsync(student);
+                await _unitOfWork.SaveAsync();
+
                 return new Result(ResultStatus.Success,$"{student.FirstName +" " + student.LastName} Adlı ögrenci silinmiştir.");
             }
             return new Result(ResultStatus.Error, "Ögrenci bulunamadı");
@@ -124,7 +127,9 @@ namespace KUSY.Services.Concrete
             var student = await _unitOfWork.Students.GetAsync(x=>x.StudentCode==studentCode);
             if (student != null)
             {
-                await _unitOfWork.Students.DeleteAsync(student).ContinueWith(q => _unitOfWork.SaveAsync());
+                await _unitOfWork.Students.DeleteAsync(student);
+                await _unitOfWork.SaveAsync();
+
                 return new Result(ResultStatus.Success, $"{student.FirstName + " " + student.LastName} adlı ögrenci silinmiştir.");
             }
             return new Result(ResultStatus.Error, "Ögrenci bulunamadı");
@@ -135,7 +140,9 @@ namespace KUSY.Services.Concrete
             var student = _mapper.Map<Student>(studentUpdateDto);
             student.ModifiedById = modifiedById;
             student.ModifiedDate = DateTime.Now;
-            await _unitOfWork.Students.UpdateAsync(student).ContinueWith(f=>_unitOfWork.SaveAsync());
+            await _unitOfWork.Students.UpdateAsync(student);
+            await _unitOfWork.SaveAsync();
+
             return new Result(ResultStatus.Success, $"{studentUpdateDto.StudentCode} numaralı ögrenci guncellenmiştir.");                
         }
     }
